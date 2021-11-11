@@ -2,6 +2,8 @@ from wordcloud import WordCloud
 import MeCab
 import sys
 from sys import argv
+from icecream import ic
+
 input_file_name= sys.argv[1]
 
 print(input_file_name)
@@ -24,7 +26,9 @@ def wakati_text(text):
     while node:
 
         term = node.surface
+        # ic(node.surface,node.feature.split(','))
         pos = node.feature.split(',')[0]
+
         if pos in select_conditions:
             if term in stop_words:
                 pass
